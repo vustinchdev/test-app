@@ -18,9 +18,19 @@ function App() {
     { id: 4, title: 'Redux', isDone: false }
   ])
 
+
+
+  const removeTask = (taskId: number) => {
+    let task = tasks.filter(t => t.id !== taskId)
+    setTasks(task)
+  }
+
   return (
     <div className="App">
-      <TodoList tasks={tasks} title='What to learn' />
+      <TodoList
+        tasks={tasks}
+        title='What to learn'
+        removeTask={removeTask} />
     </div>
   );
 }
